@@ -1,0 +1,5 @@
+services:
+    test-restart-with-error:
+        image: python
+        restart: unless-stopped
+        command: python -c "from time import sleep;sleep(10);print(asdf)"

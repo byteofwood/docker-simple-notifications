@@ -13,4 +13,6 @@ You can manually test this script by running `docker-compose --file test.docker-
 ## Disclaimer
 Do not use this anywhere important. It is almost certainly not good enough for a production environment. I just threw this together in an hour. For example, I have no idea what will happen if the docker daemon restarts while this script is running.
 
+Also, make sure to pick a ntfy topic name that is not easily guessable. Otherwise, a bad actor might be able to guess the topic and see your notifications. ["Because there is no sign-up, the topic is essentially a password"](https://ntfy.sh/#publish)
+
 Feel free to do whatever you want with this code as long as you follow the dependencies' licences.

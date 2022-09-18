@@ -45,6 +45,12 @@ child.stdout.on("data", (dataBuffer) => {
        remove trailing whitespace, and remove the last comma because it would cause a 
        syntax error
     */
-    const dockerEvents = JSON.parse("[" + dataBuffer.toString().trim().slice(0, -1) + "]");
+    let dataString = dataBuffer.toString().trim()
+    if (dataString.slice(-1) !== ',') {
+        // if the string ends in a comma, get rid of it
+        // sometiems the string doesn't end in a comma for some reason
+        dataString = dataString.slice(0, -1)
+    }
+    const dockerEvents = JSON.parse("[" + dataString + "]");
     dockerEvents.forEach(processDockerEvent);
 });

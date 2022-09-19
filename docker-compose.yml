@@ -1,0 +1,9 @@
+services:
+    notifications:
+        image: byteofwood/docker-simple-notifications
+        volumes:
+            - /var/run/docker.sock:/var/run/docker.sock
+        environment:
+            - NOTIFY_STARTUP=true
+            - NTFY_SERVER=https://ntfy.sh/
+            - NTFY_TOPIC=

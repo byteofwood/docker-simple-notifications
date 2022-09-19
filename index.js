@@ -49,7 +49,6 @@ const main = () => {
 
     // Listen to docker events
     const child = spawn("docker", ["events", "--format", "{{json .}},"]);
-    console.log('Listening to docker events...')
     child.stdout.on("data", (dataBuffer) => {
         /* multiple events may be on one line, so we must put the entire line into an array,
         remove trailing whitespace, and remove the last comma because it would cause a 
